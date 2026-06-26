@@ -135,6 +135,7 @@ visualized_joint_id: 18    # 可视化关节（右肘）
   - 如果权重全给一个关节，会出现什么效果？
     - 僵硬、机器人效果
     - 关节处会出现不自然的角度
+<img width="1077" height="1119" alt="stage_a_template_weights" src="https://github.com/user-attachments/assets/29c77dd1-33df-4030-9b09-9a3655fd928d" />
 
 ### 2. stage_b_shaped_joints.png
 - **内容**：形状变化后的网格 + 回归出的关节
@@ -146,6 +147,7 @@ visualized_joint_id: 18    # 可视化关节（右肘）
   - v_template 与 v_shaped 的区别？
     - v_template：标准体型模板
     - v_shaped：应用形状参数后的个性化体型
+<img width="1077" height="1119" alt="stage_b_shaped_joints" src="https://github.com/user-attachments/assets/f26c7ec8-8a00-46ab-8ad0-1fc143830999" />
 
 ### 3. stage_c_pose_offsets.png
 - **内容**：姿态校正后的网格，颜色表示偏移大小
@@ -158,6 +160,7 @@ visualized_joint_id: 18    # 可视化关节（右肘）
   - 如果去掉 pose_offsets，会出现什么问题？
     - 弯曲处皮肤会内陷
     - 不符合真实人体变形
+<img width="1077" height="1119" alt="stage_c_pose_offsets" src="https://github.com/user-attachments/assets/87589eba-4b1b-4bb4-8e36-d993cf42d1e4" />
 
 ### 4. stage_d_lbs_result.png
 - **内容**：最终姿态下的网格 + 关节位置
@@ -170,6 +173,7 @@ visualized_joint_id: 18    # 可视化关节（右肘）
     - 平滑过渡
     - 自然变形
     - 避免接缝
+<img width="1077" height="1119" alt="stage_d_lbs_result" src="https://github.com/user-attachments/assets/277603ae-8a3a-40be-b866-ddc9f98fee31" />
 
 ### 5. comparison_grid.png
 - **内容**：2×2 四阶段对比图
@@ -178,6 +182,7 @@ visualized_joint_id: 18    # 可视化关节（右肘）
   - (c) Pose Blend Shapes
   - (d) Final LBS Result
 - **作用**：清晰展示 LBS 的每个阶段
+<img width="2417" height="2176" alt="comparison_grid" src="https://github.com/user-attachments/assets/e7e4b96c-fd39-4b4c-b672-9d80d9225dbe" />
 
 ### 6. all_joint_weights.png（可选）
 - **内容**：全关节主导权重分布图
@@ -185,6 +190,7 @@ visualized_joint_id: 18    # 可视化关节（右肘）
   - 颜色种类：表示主要受哪个关节控制
   - 颜色明暗：表示该主导权重的强弱
 - **作用**：展示 SMPL 模板网格在初始状态下已携带完整的关节影响分布
+<img width="1517" height="1559" alt="all_joint_weights" src="https://github.com/user-attachments/assets/476e9cfe-83ff-4183-afc0-d41eceb9e3a7" />
 
 ## 技术细节
 
