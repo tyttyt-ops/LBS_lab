@@ -1,6 +1,7 @@
 # SMPL 线性蒙皮（LBS）可视化实验
 
 姓名：唐悦婷 学号：202311061051 专业：计算机科学与技术（公费师范）
+
 本实验项目完整实现了 SMPL（Skinned Multi-Person Linear Model）的线性蒙皮（Linear Blend Skinning, LBS）流程，并提供了详细的可视化对比。
 
 ## 实验任务
