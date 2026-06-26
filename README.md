@@ -2,46 +2,46 @@
 
 本实验项目完整实现了 SMPL（Skinned Multi-Person Linear Model）的线性蒙皮（Linear Blend Skinning, LBS）流程，并提供了详细的可视化对比。
 
-## 📋 实验任务
+## 实验任务
 
 本项目完整完成了以下 7 个任务：
 
 ### 任务 1：加载 SMPL 并输出基础信息
-- ✅ 使用 `smplx.create()` 加载 SMPL 模型
-- ✅ 指定 `model_type='smpl'`, `gender='neutral'`
-- ✅ 输出模型基础信息：顶点数、面片数、关节数、betas 维度
+- 使用 `smplx.create()` 加载 SMPL 模型
+- 指定 `model_type='smpl'`, `gender='neutral'`
+- 输出模型基础信息：顶点数、面片数、关节数、betas 维度
 
 ### 任务 2：可视化模板网格与蒙皮权重
-- ✅ **单关节权重热力图** (`stage_a_template_weights.png`)：显示特定关节对所有顶点的影响权重
-- ✅ **全关节主导权重分布图** (`all_joint_weights.png`)：每个面片根据主导影响关节着色
+- **单关节权重热力图** (`stage_a_template_weights.png`)：显示特定关节对所有顶点的影响权重
+- **全关节主导权重分布图** (`all_joint_weights.png`)：每个面片根据主导影响关节着色
 
 ### 任务 3：可视化形状校正与关节回归
-- ✅ 设置非零形状参数 β 产生体型变化
-- ✅ 计算形状校正后的网格 `v_shaped`
-- ✅ 利用 `J_regressor` 回归关节位置
-- ✅ 可视化结果 (`stage_b_shaped_joints.png`)
+- 设置非零形状参数 β 产生体型变化
+- 计算形状校正后的网格 `v_shaped`
+- 利用 `J_regressor` 回归关节位置
+- 可视化结果 (`stage_b_shaped_joints.png`)
 
 ### 任务 4：可视化姿态校正
-- ✅ 设置非零姿态参数 θ（抬手、弯肘等）
-- ✅ 构造 `pose_feature = R - I`
-- ✅ 计算 `pose_offsets` 和 `v_posed`
-- ✅ 可视化姿态偏移大小 (`stage_c_pose_offsets.png`)
+- 设置非零姿态参数 θ（抬手、弯肘等）
+- 构造 `pose_feature = R - I`
+- 计算 `pose_offsets` 和 `v_posed`
+- 可视化姿态偏移大小 (`stage_c_pose_offsets.png`)
 
 ### 任务 5：可视化完整 LBS 结果
-- ✅ 计算关节的全局刚体变换
-- ✅ 使用 LBS 权重进行加权变换
-- ✅ 得到最终顶点位置
-- ✅ 可视化最终姿态 (`stage_d_lbs_result.png`)
+- 计算关节的全局刚体变换
+- 使用 LBS 权重进行加权变换
+- 得到最终顶点位置
+- 可视化最终姿态 (`stage_d_lbs_result.png`)
 
 ### 任务 6：生成总对比图
-- ✅ 生成 2×2 对比图 (`comparison_grid.png`)，清晰展示四个阶段
+- 生成 2×2 对比图 (`comparison_grid.png`)，清晰展示四个阶段
 
 ### 任务 7：手写 LBS 与官方结果一致性验证
-- ✅ 计算手写实现与官方前向结果误差
-- ✅ 平均绝对误差：0.0000000000
-- ✅ 最大绝对误差：0.0000000000
+- 计算手写实现与官方前向结果误差
+- 平均绝对误差：0.0000000000
+- 最大绝对误差：0.0000000000
 
-## 🚀 快速开始
+## 快速开始
 
 ### 环境要求
 
@@ -83,7 +83,7 @@ python run_lbs_lab.py --model-dir ./models --out-dir ./outputs --joint-id 18 --n
 | `--joint-id` | `18` | 要可视化的关节编号（18 = 右肘） |
 | `--num-betas` | `10` | 使用的 shape 参数维度 |
 
-## 📁 项目结构
+## 项目结构
 
 ```
 lbs/
@@ -102,7 +102,7 @@ lbs/
     └── summary.txt                    # 模型摘要与误差报告
 ```
 
-## 📊 实验结果
+## 实验结果
 
 ### 模型基础信息
 
@@ -123,7 +123,7 @@ visualized_joint_id: 18    # 可视化关节（右肘）
 
 手写实现与官方前向结果完全一致！
 
-## 🎨 输出文件说明
+## 输出文件说明
 
 ### 1. stage_a_template_weights.png
 - **内容**：模板网格 + 单关节权重热力图
@@ -186,7 +186,7 @@ visualized_joint_id: 18    # 可视化关节（右肘）
   - 颜色明暗：表示该主导权重的强弱
 - **作用**：展示 SMPL 模板网格在初始状态下已携带完整的关节影响分布
 
-## 🔬 技术细节
+## 技术细节
 
 ### LBS 流程
 
@@ -225,7 +225,7 @@ visualized_joint_id: 18    # 可视化关节（右肘）
 - `batch_rigid_transform()` - 批量刚体变换
 - `install_chumpy_pickle_shim()` - 兼容旧版 SMPL 模型文件的加载
 
-## 🤔 思考题
+## 思考题
 
 ### 关于蒙皮权重
 
@@ -265,7 +265,7 @@ visualized_joint_id: 18    # 可视化关节（右肘）
 **Q: 为什么最终顶点要写成加权和，而不是只选择最大权重的关节？**
 - A: 加权混合可以保证变形的平滑过渡，避免因硬切换导致的接缝和不自然变形。
 
-## 📝 注意事项
+## 注意事项
 
 1. **SMPL 模型文件**：由于文件较大（约 235MB），本仓库不包含模型文件。请从 SMPL 官网下载或从其他合法渠道获取。
 
@@ -273,22 +273,8 @@ visualized_joint_id: 18    # 可视化关节（右肘）
 
 3. **内存要求**：运行实验时需要足够的内存来加载 SMPL 模型和进行计算。
 
-## 📚 参考资料
+## 参考资料
 
 - [SMPL 官网](http://smpl.is.tue.mpg.de/)
 - [SMPL-X Model](https://smpl-x.is.tue.mpg.de/)
 - [SMPLify-X 论文](https://smpl-x.is.tue.mpg.de/publications.html)
-
-## 📄 许可证
-
-本项目仅供学习使用。SMPL 模型请遵守其官方许可证。
-
-## 🤝 贡献
-
-欢迎提交 Issue 和 Pull Request！
-
----
-
-**作者**: [你的名字]
-**日期**: 2026-06-26
-**项目**: SMPL LBS Visualization Experiment
